@@ -1,0 +1,68 @@
+hello_world.admin:
+   title: 'Hello module settings'
+   description: 'example of how to make an admin settings page'
+   parent: system.admin_config_development
+   route_name: hello_world.content
+   weight: 100
+   
+   
+   
+   # For External links
+  #  hello_world.admin:
+  #title: 'Hello module settings'
+  #description: 'example of how to make an admin settings page link'
+  #parent: system.admin_config_development
+  #url: http://example.com/this-is-some-example
+  #weight: 100
+#hello_world.admin2:
+  #title: 'Hello module settings'
+  #description: 'example of how to make an admin settings page link'
+  #parent: system.admin_config_development
+  #url: internal:/some-internal-path
+  
+  #To create editable menu links you need to do it more like this:
+#    $my_menu = \Drupal::entityTypeManager()->getStorage('menu_link_content')
+#    ->loadByProperties(['menu_name' => 'my-menu-name']);
+#  foreach ($my_menu as $menu_item) {
+#    $parent_id = $menu_item->getParentId();
+#    if (!empty($parent_id)) {
+#      $top_level = $parent_id;
+#      break;
+#    }
+#  }
+#  $menu_link = MenuLinkContent::create([
+#    'title' => 'My menu link title',
+#    'link' => ['uri' => 'internal:/my/path'],
+#    'menu_name' => 'my-menu-name',
+#    'parent' => $top_level,
+#    'expanded' => TRUE,
+#    'weight' => 0,
+#  ]);
+#  $menu_link->save();
+
+
+
+# To create a new category on admin/config page :
+# First you can add a new route for the category in your .routing.yml file:
+# system.admin_config_helloworld:
+#  path: '/admin/config/helloworld'
+#  defaults:
+#    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+#    _title: 'MY Module'
+#  requirements:
+#    _permission: 'access administration pages'
+
+# The category does not appear until you add some settings (e.g. in your .links.menu.yml file):
+#hello_world.admin:
+#  title: 'Hello module settings'
+#  description: 'example of how to make an admin settings page link'
+#  parent: system.admin_config_helloworld
+#  url: http://example.com/this-is-some-example
+#  weight: 100
+#hello_world.admin2:
+#  title: 'Hello module settings'
+#  description: 'example of how to make an admin settings page link'
+#  parent: system.admin_config_helloworld
+#  url: internal:/some-internal-path
+
+   
